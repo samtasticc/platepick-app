@@ -1,1 +1,1 @@
-# restaurant-app
+# platepick-app
