@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %} 
+{% block content %}
+
+    <div class="page-header">
+        <h1>Add a Restaurant to {{ destination.city }}</h1>
+        <img src="{% static '' %}" alt="" />
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Restaurant</button>
+    </form>
+            <a href="{% url 'platepick-detail' pk=destination.pk %}">Cancel</a>
+        {% if destination and destination.pk %}
+            <a href="{% url 'platepick-detail' pk=destination.pk %}">Back to Destination</a>
+        {% else %}
+            <a href="{% url 'platepick-list' %}">Back to Destinations</a>
+{% endif %}
+{% endblock %}

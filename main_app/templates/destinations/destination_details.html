@@ -20,4 +20,5 @@
       {% endfor %}
     </ul>
     <a href="{% url 'destination-list' %}">Back to Destinations</a>
+    <a href="{% url 'add-restaurant' pk=destination.pk %}">➕ Add a Restaurant</a>
 {% endblock %}
