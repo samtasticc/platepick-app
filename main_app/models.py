@@ -32,4 +32,4 @@ class Restaurant(models.Model):
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, default=1, related_name="restaurants")
 
     def __str__(self):
-        return f"{self.get_name_display()} on {self.date}"
+        return f"{self.get_name_display()} on {self.date}" # might not need this
