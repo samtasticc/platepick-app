@@ -8,25 +8,28 @@ class Destination(models.Model):
     city = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return f"{self.city}, {self.state}, {self.country}"
 
     def get_absolute_url(self):
-        return reverse('platepick-detail', kwargs={'platepick_id': self.id})
+        return reverse('platepick-detail', kwargs={'pk': self.pk})
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=100)
     cuisine = models.CharField(max_length=100)
-    price = [
+    price_option = [
         ('option1', '$'),
         ('option2', '$$'),
         ('option3', '$$$'),
         ('option4', '$$$$'),
         ('option5', '$$$$$')
     ]
-    visit = [
+    visit_option = [
         ('option1', 'Want to Try'),
         ('option2', 'Visited')
     ]
+    price = models.CharField(max_length=15, choices=price_option, default='$')
+    visit = models.CharField(max_length=15, choices=visit_option, default='option1')
+    destination = models.ForeignKey(Destination, on_delete=models.CASCADE, default=1, related_name="restaurants")
 
     def __str__(self):
         return f"{self.get_name_display()} on {self.date}" # might not need this

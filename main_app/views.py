@@ -1,7 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
+from django.views.generic import ListView, DetailView
 from .models import Destination
-from .forms import RestaurantForm
+from .models import Restaurant
+from .restaurantForm import RestaurantForm
+from django.shortcuts import get_object_or_404
+from django.urls import reverse_lazy
+from django.views.generic import UpdateView, DeleteView
 
 # Create your views here.
 
@@ -10,9 +15,53 @@ class DestinationCreate(CreateView):
     fields = '__all__'
     sucess_url = '/platepick/'
 
-def destination_detail(request, destination_id):
-    destination = Destination.objects.get(id=destination_id)
-    restaurant_form = RestaurantForm()
-    return render(request, 'platepick/detail.html', {
-        'destination': destination, 'restaurant_form': restaurant_form
-    }) # will need to check with Lekan's view page first
+class RestaurantListView(ListView):
+    model = Restaurant
+    template_name = 'restaurants/restaurantIndex.html'  
+    context_object_name = 'restaurants'  
+    ordering = ['name']  
+
+class DestinationListView(ListView):
+    model = Destination
+    template_name = 'destinations/destination_restaurantlists.html'
+    context_object_name = 'destinations'
+
+class DestinationDetailView(DetailView):
+    model = Destination
+    template_name = 'destinations/destination_details.html'
+    context_object_name = 'destination'
+
+
+
+def add_restaurant(request, pk):
+    destination = get_object_or_404(Destination, pk=pk)  
+
+    if request.method == 'POST':
+        form = RestaurantForm(request.POST)  
+        if form.is_valid():
+            restaurant = form.save(commit=False)  
+            restaurant.destination = destination  
+            restaurant.save()  
+            return redirect('platepick-detail', pk=pk)  
+    else:
+        form = RestaurantForm()  
+
+    return render(request, 'restaurants/add_restaurant.html', {'form': form, 'destination': destination})
+
+class EditDestinationView(UpdateView):
+    model = Destination
+    fields = ['country', 'state', 'city']
+    template_name = 'destinations/edit_destination.html'
+    
+    def get_success_url(self):
+        return reverse_lazy('platepick-detail', kwargs={'pk': self.object.pk})
+
+
+class EditRestaurantView(UpdateView):
+    model = Restaurant
+    form_class = RestaurantForm  
+    template_name = 'restaurants/edit_restaurant.html'
+
+    def get_success_url(self):
+        return reverse_lazy('platepick-detail', kwargs={'pk': self.object.destination.pk})
+    

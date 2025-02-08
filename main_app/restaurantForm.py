@@ -1,5 +1,3 @@
-# will i end up needing this page?
-
 from django import forms
 from .models import Restaurant
 
