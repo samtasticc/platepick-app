@@ -6,6 +6,7 @@ from .models import Restaurant
 from .restaurantForm import RestaurantForm
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
+from django.views.generic import UpdateView, DeleteView
 
 # Create your views here.
 
@@ -40,9 +41,27 @@ def add_restaurant(request, pk):
         if form.is_valid():
             restaurant = form.save(commit=False)  
             restaurant.destination = destination  
-            restaurant.save()  # ✅ Save to database
+            restaurant.save()  
             return redirect('platepick-detail', pk=pk)  
     else:
         form = RestaurantForm()  
 
     return render(request, 'restaurants/add_restaurant.html', {'form': form, 'destination': destination})
+
+class EditDestinationView(UpdateView):
+    model = Destination
+    fields = ['country', 'state', 'city']
+    template_name = 'destinations/edit_destination.html'
+    
+    def get_success_url(self):
+        return reverse_lazy('platepick-detail', kwargs={'pk': self.object.pk})
+
+
+class EditRestaurantView(UpdateView):
+    model = Restaurant
+    form_class = RestaurantForm  
+    template_name = 'restaurants/edit_restaurant.html'
+
+    def get_success_url(self):
+        return reverse_lazy('platepick-detail', kwargs={'pk': self.object.destination.pk})
+    
