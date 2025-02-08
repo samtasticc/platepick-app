@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %} 
+{% block content %}
+
+    <div class="page-header">
+        <h1>Restaurants</h1>
+        <img src="{% static '' %}" alt="" />
+    </div>
+    <ul>
+        {% for restaurant in destination.restaurants.all %}
+            <li>
+                <strong>{{ restaurant.name }}</strong> - {{ restaurant.cuisine }} <br>
+                Price: {{ restaurant.get_price_display }} | Status: {{ restaurant.get_visit_display }}
+            </li>
+        {% empty %}
+        <li>No restaurants found for this destination.</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'destination-list' %}">Back to Destinations</a>
+{% endblock %}
