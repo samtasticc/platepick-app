@@ -29,4 +29,4 @@ class Restaurant(models.Model):
     ]
 
     def __str__(self):
-        return f"{self.get_name_display()} on {self.date}"
+        return f"{self.get_name_display()} on {self.date}" # might not need this
