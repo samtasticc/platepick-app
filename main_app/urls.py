@@ -1,9 +1,11 @@
 from django.urls import path, include
 from . import views 
-from .views import RestaurantListView, DestinationListView, DestinationDetailView, add_restaurant, EditDestinationView, EditRestaurantView
+from .views import RestaurantListView, DestinationListView, DestinationDetailView, add_restaurant, EditDestinationView, EditRestaurantView, LandingPageView, AboutView
 
 urlpatterns = [
     # Routes will be added here
+        path('platepick/about', AboutView.as_view(), name='about'),
+        path('platepick/', LandingPageView.as_view(), name='Landing-Page'),
         path('platepick/create/', views.DestinationCreate.as_view(), name='platepick-create'), 
         path('platepick/restaurants/', RestaurantListView.as_view(), name='restaurant-list'),
         path('platepick/destinations/', DestinationListView.as_view(), name='destination-list'),

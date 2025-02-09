@@ -6,7 +6,7 @@ from .models import Restaurant
 from .restaurantForm import RestaurantForm
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import UpdateView, DeleteView
+from django.views.generic import UpdateView, DeleteView, TemplateView
 
 # Create your views here.
 
@@ -65,3 +65,9 @@ class EditRestaurantView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('platepick-detail', kwargs={'pk': self.object.destination.pk})
     
+
+class LandingPageView(TemplateView):
+    template_name = 'landing_page.html'
+
+class AboutView(TemplateView):
+    template_name = "about.html"
