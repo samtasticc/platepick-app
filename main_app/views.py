@@ -64,7 +64,13 @@ class EditRestaurantView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('platepick-detail', kwargs={'pk': self.object.destination.pk})
-    
+
+class DeleteRestaurantView(DeleteView):
+    model = Restaurant
+    template_name = 'restaurants/delete_restaurant.html'
+
+    def get_success_url(self):
+        return reverse_lazy('restaurant-list') 
 
 class LandingPageView(TemplateView):
     template_name = 'landing_page.html'
