@@ -20,7 +20,17 @@
         </div>
         <nav>
         <ul>
+            {% block navigation %}
             <li><a href="{% url 'platepick-create' %}">Add a Destination</a></li>
+            {% endblock %}
+
+            {% block home %}
+            <li><a href="{% url 'Landing-Page' %}">Back to Home Page</a></li>
+            {% endblock %}
+
+            {% block about %}
+            <li><a href="{% url 'about' %}">About</a></li>
+            {% endblock %}
         </ul>
         </nav>
     </header>
