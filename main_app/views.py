@@ -72,6 +72,13 @@ class DeleteRestaurantView(DeleteView):
     def get_success_url(self):
         return reverse_lazy('restaurant-list') 
 
+class DeleteDestinationView(DeleteView):
+    model = Destination
+    template_name = 'destinations/delete_destination.html'
+    
+    def get_success_url(self):
+        return reverse_lazy('destination-list')
+
 class LandingPageView(TemplateView):
     template_name = 'landing_page.html'
 

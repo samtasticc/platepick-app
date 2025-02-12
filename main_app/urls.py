@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views 
-from .views import RestaurantListView, DestinationListView, DestinationDetailView, add_restaurant, EditDestinationView, EditRestaurantView, DeleteRestaurantView, LandingPageView, AboutView
+from .views import RestaurantListView, DestinationListView, DestinationDetailView, add_restaurant, EditDestinationView, EditRestaurantView, DeleteRestaurantView, DeleteDestinationView, LandingPageView, AboutView
 
 urlpatterns = [
     # Routes will be added here
@@ -14,4 +14,6 @@ urlpatterns = [
         path('platepick/destinations/<int:pk>/edit/', EditDestinationView.as_view(), name='edit-destination'),
         path('platepick/restaurants/<int:pk>/edit/', EditRestaurantView.as_view(), name='edit-restaurant'),
         path('platepick/restaurants/<int:pk>/delete/', DeleteRestaurantView.as_view(), name='delete-restaurant'),
+        path('platepick/destinations/<int:pk>/delete/', DeleteDestinationView.as_view(), name='delete-destination'),
+
 ]
