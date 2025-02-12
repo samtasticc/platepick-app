@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views 
-from .views import RestaurantListView, DestinationListView, DestinationDetailView, add_restaurant, EditDestinationView, EditRestaurantView, LandingPageView, AboutView
+from .views import RestaurantListView, DestinationListView, DestinationDetailView, add_restaurant, EditDestinationView, EditRestaurantView, DeleteRestaurantView, LandingPageView, AboutView
 
 urlpatterns = [
     # Routes will be added here
