@@ -1,0 +1,18 @@
+{% extends 'base.html' %}  
+{% load static %} 
+{% block content %}
+
+<div class="page-header">
+  <h1>Delete This Destination?</h1>
+  <img src="{% static '' %}" alt="" />
+</div>
+
+<h2>Are you sure you want to delete this {{ object.city }}?</h2>
+
+<form action="" method="post" class="form">
+  {% csrf_token %}
+  <a href="{% url 'platepick-detail' object.id %}" class="btn secondary">Cancel</a>
+  <button type="submit" class="btn danger">Yes - Garbage!</button>
+</form>
+
+{% endblock %}
