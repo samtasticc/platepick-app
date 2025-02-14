@@ -13,7 +13,7 @@ from django.views.generic import UpdateView, DeleteView, TemplateView
 class DestinationCreate(CreateView):
     model = Destination
     fields = '__all__'
-    sucess_url = '/platepick/'
+    sucess_url = '/'
 
 class RestaurantListView(ListView):
     model = Restaurant
