@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Destination(models.Model):
@@ -30,6 +31,7 @@ class Restaurant(models.Model):
     price = models.CharField(max_length=15, choices=price_option, default='$')
     visit = models.CharField(max_length=15, choices=visit_option, default='option1')
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, default=1, related_name="restaurants")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.get_name_display()} on {self.date}" # might not need this
