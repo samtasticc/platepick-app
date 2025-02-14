@@ -13,7 +13,7 @@ from .models import Destination
 from .models import Restaurant
 # Create your views here.
 class Home(LoginView):
-    template_name = 'home.html'
+    template_name = 'landing_page.html'
     
 class DestinationCreate(CreateView):
     model = Destination
@@ -84,8 +84,6 @@ class DeleteDestinationView(DeleteView):
     def get_success_url(self):
         return reverse_lazy('destination-list')
 
-class LandingPageView(TemplateView):
-    template_name = 'landing_page.html'
 
 class AboutView(TemplateView):
     template_name = "about.html"
