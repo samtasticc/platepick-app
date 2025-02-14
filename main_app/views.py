@@ -1,15 +1,20 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView, DetailView
-from .models import Destination
-from .models import Restaurant
+
 from .restaurantForm import RestaurantForm
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView, DeleteView, TemplateView
+from django.contrib.auth.views import LoginView
 
+
+from .models import Destination
+from .models import Restaurant
 # Create your views here.
-
+class Home(LoginView):
+    template_name = 'home.html'
+    
 class DestinationCreate(CreateView):
     model = Destination
     fields = '__all__'
