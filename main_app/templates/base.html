@@ -19,6 +19,19 @@
         </a>
         </div>
         <nav>
+            <ul>
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'destination-list' %}">All Desinations</a></li>
+                <!-- <li><a href="{% url 'destination-create' %}">Add a Destination</a></li> sam could you take a look here? -->
+                <li><a href="{% url 'add-restaurant' %}">Add a Restaurant</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+              {% else %}
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'landing_page' %}">Login</a></li>
+              {% endif %}
+            </ul>
+          </nav>
+        <!-- <nav>
         <ul>
             {% block navigation %}
             <li><a href="{% url 'platepick-create' %}">Add a Destination</a></li>
@@ -32,7 +45,7 @@
             <li><a href="{% url 'about' %}">About</a></li>
             {% endblock %}
         </ul>
-        </nav>
+        </nav> -->
     </header>
     <main>
         {% block content %} 

@@ -18,7 +18,7 @@ class Home(LoginView):
 class DestinationCreate(CreateView):
     model = Destination
     fields = '__all__'
-    sucess_url = '/platepick/'
+    success_url = '/platepick/'
 
 class RestaurantListView(ListView):
     model = Restaurant
