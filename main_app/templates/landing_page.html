@@ -19,6 +19,8 @@
   <p>Your Personal Guide to Culinary Adventures</p>
   
   <img src="{% static '' %}" alt="PlatePicks" />
+
+  {% if not user.is_authenticated %}
   <section>
     <form action="{% url 'landing_page' %}" method="post"
     class="login">
@@ -27,6 +29,7 @@
       <input type="hidden" name="next" value="{{ next }}"/>
       <button type="submit" class="btn submit">Login</button>
     </form>
+    {% endif %}
   </section>
 </div>
 

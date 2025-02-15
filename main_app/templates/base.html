@@ -25,6 +25,12 @@
                 <!-- <li><a href="{% url 'destination-create' %}">Add a Destination</a></li> sam could you take a look here? -->
                 <li><a href="{% url 'add-restaurant' %}">Add a Restaurant</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
+                <li>
+                    <form id="logout-form" method="post" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                      <button type="submit">Log out</button>
+                    </form>
+                  </li>
               {% else %}
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'landing_page' %}">Login</a></li>
