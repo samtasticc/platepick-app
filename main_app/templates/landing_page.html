@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+<!-- {% extends 'base.html' %} 
 {% load static %} 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
@@ -35,4 +35,44 @@
 
 </section>
 
+{% endblock %} -->
+
+
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %} 
+
+{% block content %}
+<section>
+  <div class="page-header">
+    <h1>Welcome to PlatePicks</h1>
+    <p>Your Personal Guide to Culinary Adventures</p>
+    
+    <img src="{% static '' %}" alt="PlatePicks" />
+
+    <nav>
+      <ul>
+        <li><a href="{% url 'about' %}">About</a></li>
+        {% if not user.is_authenticated %}
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+
+  {% if not user.is_authenticated %}
+  <section>
+    <form action="{% url 'login' %}" method="post" class="login">
+      <h1>Login</h1>
+      {% csrf_token %} 
+      {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}"/>
+      <button type="submit" class="btn submit">Login</button>
+    </form>
+  </section>
+  {% endif %}
+</section>
 {% endblock %}

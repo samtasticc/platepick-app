@@ -29,10 +29,10 @@ class Restaurant(models.Model):
         ('option1', 'Want to Try'),
         ('option2', 'Visited')
     ]
-    price = models.CharField(max_length=15, choices=price_option, default='$')
+    price = models.CharField(max_length=15, choices=price_option, default='option1')
     visit = models.CharField(max_length=15, choices=visit_option, default='option1')
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, default=1, related_name="restaurants")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.get_name_display()} on {self.date}" # might not need this
+        return f"{self.name} - {self.cuisine}" # might not need this
