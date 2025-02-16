@@ -7,11 +7,28 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView, DeleteView, TemplateView
 from django.contrib.auth.views import LoginView
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 from .models import Destination
 from .models import Restaurant
 # Create your views here.
+
+def signup(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+
+            return redirect('destination-list')
+        else:
+            error_message = 'Invalid sign up - please try again!'
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'signup.html', context)
+   
 class Home(LoginView):
     template_name = 'landing_page.html'
     
@@ -22,7 +39,7 @@ class DestinationCreate(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-        
+
     success_url = '/platepick/'
 
 class RestaurantListView(ListView):
