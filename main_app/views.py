@@ -18,6 +18,11 @@ class Home(LoginView):
 class DestinationCreate(CreateView):
     model = Destination
     fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+        
     success_url = '/platepick/'
 
 class RestaurantListView(ListView):
