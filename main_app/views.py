@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 from .models import Destination
 from .models import Restaurant
 from .restaurantForm import RestaurantForm
@@ -67,7 +67,7 @@ class EditRestaurantView(UpdateView):
     
 class DeleteRestaurantView(DeleteView):
     model =  Restaurant
-    tenplate_name = 'restaurants/confirm_delete_restaurant.html'
+    template_name = 'restaurants/restaurant_confirm_delete.html'
 
     def get_success_url(self):
         return reverse_lazy('platepick-detail', kwargs={'pk': self.object.destination.pk})
