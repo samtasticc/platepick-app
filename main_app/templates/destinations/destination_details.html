@@ -15,6 +15,7 @@
                 <strong>{{ restaurant.name }}</strong> - {{ restaurant.cuisine }} <br>
                 Price: {{ restaurant.get_price_display }} | Status: {{ restaurant.get_visit_display }}
                 <a href="{% url 'edit-restaurant' pk=restaurant.pk %}">✏️ Edit</a>
+                <a href="{ url 'delete-restaurant' pk=restaurant.pk }">DELETE</a>
             </li>
         {% empty %}
         <li>No restaurants found for this destination.</li>
