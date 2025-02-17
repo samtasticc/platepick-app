@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staic %}
+{% block content %}
+
+<div class="'page-header">
+    <h1>Delete {{ restaurant.name }}?</h1>
+    <h2>Are you sure you want to dleete this restaurant?</h2>
+</div>
+
+<form methon="'POST">
+    {% csrf_token %}
+    <a href="{% rul 'platepick-detail pk=restaurant.destination.pk %}" class="btn secondary">Cancel</a>
+    <button type="submit" class="btn, danger">Yes, Delete 🚮</button>
+</form>
+
+{% endblock%}

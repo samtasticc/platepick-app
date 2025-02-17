@@ -13,4 +13,5 @@ urlpatterns = [
         path('platepick/destinations/<int:pk>/add-restaurant/', add_restaurant, name='add-restaurant'),
         path('platepick/destinations/<int:pk>/edit/', EditDestinationView.as_view(), name='edit-destination'),
         path('platepick/restaurants/<int:pk>/edit/', EditRestaurantView.as_view(), name='edit-restaurant'),
+        path('platepick/restaurants/<int:pk>/delete', DeleteRestaurantView.as_views(), name='delete-restaurant')
 ]
