@@ -19,29 +19,29 @@
         </a>
         </div>
         <nav>
-        <ul>
-            {% if user.is_authenticated %}
-            {% block navigation %}
-            <li><a href="{% url 'platepick-create' %}">Add a Destination</a></li>
-            {% endblock %}
+            <ul>
+                {% if user.is_authenticated %}
+                {% block navigation %}
+                <li><a href="{% url 'platepick-create' %}">Add a Destination</a></li>
+                {% endblock %}
 
-            {% block home %}
-            <li><a href="{% url 'Landing-Page' %}">Back to Home Page</a></li> <!-- is this needed? -->
-            <li>
-                <form id="logout-form" method="post" action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    <button type="submit">Log out</button>
-                </form>
-            </li>
-            {% endblock %}
-            {% else %}
-            {% block about %}
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'Landing-Page' %}">Login</a></li>
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            {% endif %}
-            {% endblock %}
-        </ul>
+                {% block home %}
+                <li><a href="{% url 'Landing-Page' %}">Back to Home Page</a></li> <!-- is this needed? -->
+                <li>
+                    <form id="logout-form" method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Log out</button>
+                    </form>
+                </li>
+                {% endblock %}
+                {% else %}
+                {% block about %}
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'Landing-Page' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                {% endblock %}
+                {% endif %}
+            </ul>
         </nav>
     </header>
     <main>
