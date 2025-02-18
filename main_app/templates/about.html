@@ -6,21 +6,25 @@
 
 {% block navigation %}
 
-{% endblock %}
 
-{% block about %}
-            
+{% if user.is_authenticated %}
+    <li><a href="{% url 'platepick-create' %}">Add a Destination</a></li>
+    <li><a href="{% url 'destination-list' %}">Destinations</a></li>
+    <li>
+        <form id="logout-form" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+        </form>
+    </li>
+{% else %}
+    <li><a href="{% url 'Landing-Page' %}">Login</a></li>
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+{% endif %}
 {% endblock %}
 
 {% block content %}
-
 <div class="page-header">
-  <h1>About PlatePick</h1>
-
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <img src="{% static '' %}" alt="" />
+  <h1>Welcome to PlatePick</h1>
+  <p>Your Personal Guide to Culinary Adventures</p>
 </div>
-
-
-
 {% endblock %}

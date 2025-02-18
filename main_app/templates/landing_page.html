@@ -1,11 +1,24 @@
 {% extends 'base.html' %} 
 {% load static %} 
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
 {% endblock %} 
 
 {% block navigation %}
-
+<li><a href="{% url 'about' %}">About</a></li>
+{% if user.is_authenticated %}
+    <li><a href="{% url 'destination-list' %}">Destinations</a></li>
+    <li>
+        <form id="logout-form" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+        </form>
+    </li>
+{% else %}
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+    <li><a href="{% url 'Landing-Page' %}">Login</a></li>
+{% endif %}
 {% endblock %}
 
 {% block home %}
@@ -20,7 +33,15 @@
   <p>Your Personal Guide to Culinary Adventures</p>
   <img src="{% static '' %}" alt="" />
 </div>
-
-
+{% if not user.is_authenticated %}
+<section>
+  <form action="{% url 'Landing-Page' %}" method="post" class="login">
+    <h1>Login</h1>
+    {% csrf_token %} {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <button type="submit" class="btn submit">Login</button>
+  </form>
+</section>
+{% endif %}
 
 {% endblock %}
