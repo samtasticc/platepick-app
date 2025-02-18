@@ -70,6 +70,13 @@ class DeleteDestinationView(DeleteView):
     template_name = 'destinations/destination_confirm_delete.html'
     success_url = reverse_lazy('destination-list')
 
+class DeleteRestaurantView(DeleteView):
+    model = Restaurant
+    template_name = 'restaurants/restaurant_confirm_delete.html'
+
+    def get_success_url(self):
+        return reverse_lazy('platepick-detail', kwargs={'pk': self.object.destination.pk})
+
 class LandingPageView(TemplateView):
     template_name = 'landing_page.html'
 
