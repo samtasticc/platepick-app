@@ -139,6 +139,8 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+LOGIN_URL = 'Landing-Page'
+
 LOGIN_REDIRECT_URL = 'destination-list'
 
 LOGOUT_REDIRECT_URL = 'Landing-Page'
