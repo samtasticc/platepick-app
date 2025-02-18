@@ -1,6 +1,6 @@
 # PlatePick - A Django CRUD App
 
-![PlaterPickImage](https://files.oaiusercontent.com/file-7Sm1ZVWzn4cB1WafRHAyWd?se=2024-12-11T07%3A29%3A05Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D3926de48-cd12-478e-942f-4d5679e94109.webp&sig=rNl8pO0aNEqlotc%2BzAFgCOIcONGdGLNS%2BXAJwGIfwWQ%3D)
+<img width="864" alt="Screenshot 2025-02-18 at 3 04 17 PM" src="https://github.com/user-attachments/assets/9aa7405b-535f-4092-9ecd-97b18db230c8" />
 
 ## Project Description
 > PlatePicks is the ultimate platform for food lovers to organize their dining experiences. Whether you're planning your next foodie adventure or reminiscing about past restaurant visits, PlatePicks makes it easy to add, manage, and track your favorite spots. Save restaurants you’ve discovered, rate and review the ones you’ve visited, and build a personalized dining wish list—all in one convenient place. With PlatePicks, every meal is a story waiting to be told!
