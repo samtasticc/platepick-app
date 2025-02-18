@@ -31,7 +31,7 @@ def signup(request):
 
 class DestinationCreate(LoginRequiredMixin, CreateView):
     model = Destination
-    fields = '__all__'
+    fields = ['country', 'state', 'city']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
