@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %} 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+<link rel="stylesheet" href="{% static 'css/editRestaurant.css' %}" />
 {% endblock %} 
 {% block content %}
 
@@ -14,5 +14,7 @@
         {{ form.as_p }}
         <button type="submit">Save Changes</button>
     </form>
-    <a href="{% url 'platepick-detail' pk=object.destination.pk %}">Cancel</a>
+    <div class="cancel">
+        <a href="{% url 'platepick-detail' pk=object.destination.pk %}">Cancel</a>
+    </div>
 {% endblock %}
