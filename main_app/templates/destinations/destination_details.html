@@ -15,6 +15,7 @@
                 <strong>{{ restaurant.name }}</strong> - {{ restaurant.cuisine }} <br>
                 Price: {{ restaurant.get_price_display }} | Status: {{ restaurant.get_visit_display }}
                 <a href="{% url 'edit-restaurant' pk=restaurant.pk %}">✏️ Edit</a>
+                <a href="{% url 'delete-restaurant' pk=restaurant.pk %}" class="btn delete">🗑️ Delete</a>
             </li>
         {% empty %}
         <li>No restaurants found for this destination.</li>
@@ -23,4 +24,5 @@
     <a href="{% url 'destination-list' %}">Back to Destinations</a>
     <a href="{% url 'add-restaurant' pk=destination.pk %}">➕ Add a Restaurant</a>
     <a href="{% url 'edit-destination' pk=destination.pk %}">✏️ Edit Destination</a>
+    <a href="{% url 'delete-destination' pk=destination.pk %}" class="btn delete">🗑️ Delete Destination</a>
 {% endblock %}
