@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Delete Destination</h1>
+        <p>Are you sure you want to delete "{{ object.city }}, {{ object.state }}, {{ object.country }}" from your destinations?</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn delete">🗑️ Yes- Delete!</button>
+            <a href="{% url 'platepick-detail' pk=object.pk %}" class="btn cancel">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

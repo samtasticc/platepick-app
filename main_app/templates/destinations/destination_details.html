@@ -23,4 +23,5 @@
     <a href="{% url 'destination-list' %}">Back to Destinations</a>
     <a href="{% url 'add-restaurant' pk=destination.pk %}">➕ Add a Restaurant</a>
     <a href="{% url 'edit-destination' pk=destination.pk %}">✏️ Edit Destination</a>
+    <a href="{% url 'delete-destination' pk=destination.pk %}" class="btn delete">🗑️ Delete Destination</a>
 {% endblock %}
