@@ -20,7 +20,13 @@
   <p>Your Personal Guide to Culinary Adventures</p>
   <img src="{% static '' %}" alt="" />
 </div>
-
-
+<section>
+  <form action="{% url 'Landing-Page' %}" method="post" class="login">
+    <h1>Login</h1>
+    {% csrf_token %} {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <button type="submit" class="btn submit">Login</button>
+  </form>
+</section>
 
 {% endblock %}
