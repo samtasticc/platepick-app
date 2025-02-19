@@ -4,10 +4,8 @@
 <link rel="stylesheet" href="{% static 'css/editDestination.css' %}" />
 {% endblock %} 
 {% block content %}
-
     <div class="page-header">
         <h1>Edit Destination {{ destination.city }}</h1>
-        <img src="{% static '' %}" alt="" />
     </div>
     <form method="POST">
         {% csrf_token %}

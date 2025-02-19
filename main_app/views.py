@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView #Is this too high?
+from django.views.generic.edit import CreateView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -13,7 +13,6 @@ from django.urls import reverse_lazy
 from django.views.generic import UpdateView, DeleteView, TemplateView
 from django.contrib.auth.views import LoginView
 
-# Create your views here.
 def signup(request):
     error_message = ''
     if request.method == 'POST':
