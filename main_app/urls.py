@@ -3,7 +3,6 @@ from . import views
 from .views import RestaurantListView, DestinationListView, DestinationDetailView, add_restaurant, EditDestinationView, EditRestaurantView, DeleteDestinationView, DeleteRestaurantView, LandingPageView, AboutView
 
 urlpatterns = [
-    # Routes will be added here
         path('platepick/about', AboutView.as_view(), name='about'),
         path('', views.LandingPageView.as_view(), name='Landing-Page'),
         path('platepick/create/', views.DestinationCreate.as_view(), name='platepick-create'), 
@@ -16,6 +15,4 @@ urlpatterns = [
         path('platepick/destinations/<int:pk>/delete/', DeleteDestinationView.as_view(), name='delete-destination'),
         path('platepick/restaurants/<int:pk>/delete/', DeleteRestaurantView.as_view(), name='delete-restaurant'),
         path('accounts/signup/', views.signup, name='signup'),
-
-
 ]

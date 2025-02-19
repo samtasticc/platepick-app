@@ -1,10 +1,8 @@
 {% extends 'base.html' %} 
 {% load static %} 
-
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 {% endblock %} 
-
 {% block navigation %}
 <li><a href="{% url 'about' %}">About</a></li>
 {% if user.is_authenticated %}
@@ -20,18 +18,10 @@
     <li><a href="{% url 'Landing-Page' %}">Login</a></li>
 {% endif %}
 {% endblock %}
-
-{% block home %}
-            
-{% endblock %}
-
 {% block content %}
-
 <div class="page-header">
   <h1>Welcome to PlatePicks</h1>
-
   <p>Your Personal Guide to Culinary Adventures</p>
-  <img src="{% static '' %}" alt="" />
 </div>
 {% if not user.is_authenticated %}
 <section>
@@ -43,5 +33,4 @@
   </form>
 </section>
 {% endif %}
-
 {% endblock %}

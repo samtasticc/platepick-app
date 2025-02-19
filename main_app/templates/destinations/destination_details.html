@@ -4,10 +4,8 @@
 <link rel="stylesheet" href="{% static 'css/DestinationDetail.css' %}" />
 {% endblock %} 
 {% block content %}
-
     <div class="page-header">
-        <h1>{{ destination.city }} Restaurants</h1>
-        <img src="{% static '' %}" alt="" />
+        <h1>{{ destination.city }} - Restaurants</h1>
     </div>
     <ul>
         {% for restaurant in destination.restaurants.all %}
