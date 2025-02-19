@@ -78,6 +78,9 @@ AAU, I want to have the ability to delete destination entries that I no longer w
 * [Dotenv](https://www.npmjs.com/package/dotenv)
 * [Morgan](https://www.npmjs.com/package/morgan)
 * [Bcrypt](https://www.npmjs.com/package/bcrypt)
+* [StackOverflow](https://stackoverflow.com/questions/68672442/problem-with-static-files-in-django-heroku)
+* [DevCenter.Heroku](https://devcenter.heroku.com/articles/django-assets)
+* [GitHub](https://github.com/heroku/heroku-buildpack-python/blob/main/bin/steps/collectstatic)
 
 * Image: "PlatePick"
     Created by: OpenAI
