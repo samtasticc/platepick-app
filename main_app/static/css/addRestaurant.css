@@ -61,32 +61,10 @@ form button {
         width: 90%;
     }
 }
-nav {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-   
-}
-nav ul {
-    background-color:  rgb(136, 169, 152);
-    border-radius: none;
-    padding: none;
-    display: flex;
-    justify-content: center;
-    
-}
-nav ul li {
-    padding: 15px;
-    border-bottom: none;
-    font-size: 20px;
-    text-align: center;
-    list-style-type: none;
-}
-nav ul li a {
-    color: black;
-}
+
 .cancel {
     text-align: center;
     font-size: 24px;
     color: red;
 }
+
